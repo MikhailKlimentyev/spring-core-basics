@@ -1,0 +1,12 @@
+bin
+build
+target
+.settings/
+.*
+*.log
+!.gitignore
+
+*.iml
+*.ipr
+*.iws
+.idea*
