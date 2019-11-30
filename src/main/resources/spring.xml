@@ -4,27 +4,10 @@
        xsi:schemaLocation="
  		http://www.springframework.org/schema/beans
  		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
-    <bean id="client" class="model.Client" scope="singleton">
-        <constructor-arg value="1"/>
-        <constructor-arg value="John Smith"/>
-    </bean>
-    <bean id="consoleEventLogger" class="service.impl.ConsoleEventLogger" scope="singleton"/>
     <bean id="app" class="App" scope="singleton">
         <constructor-arg ref="client"/>
         <constructor-arg ref="cacheFileEventLogger"/>
     </bean>
-    <bean id="event" class="model.Event" scope="prototype">
-        <constructor-arg>
-            <bean class="java.util.Date"/>
-        </constructor-arg>
-        <constructor-arg ref="dateFormat"/>
-    </bean>
-    <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
-    <bean id="fileEventLogger" class="service.impl.FileEventLogger" scope="singleton" init-method="init">
-        <constructor-arg value="target/events_log.txt"/>
-    </bean>
-    <bean id="cacheFileEventLogger" class="service.impl.CacheFileEventLogger" scope="singleton"
-          destroy-method="destroy" parent="fileEventLogger">
-        <constructor-arg index="1" value="5"/>
-    </bean>
+    <import resource="loggers.xml"/>
+    <import resource="models.xml"/>
 </beans>
