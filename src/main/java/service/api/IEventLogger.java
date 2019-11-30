@@ -1,6 +1,8 @@
 package service.api;
 
+import model.Event;
+
 public interface IEventLogger {
 
-    void eventLogger(String msg);
+    void eventLogger(Event event);
 }
