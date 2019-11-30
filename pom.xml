@@ -10,6 +10,7 @@
 
     <properties>
         <spring.ver>5.1.5.RELEASE</spring.ver>
+        <commons-io>2.6</commons-io>
     </properties>
 
     <dependencies>
@@ -32,6 +33,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.ver}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io}</version>
         </dependency>
     </dependencies>
 

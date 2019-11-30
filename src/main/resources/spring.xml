@@ -8,10 +8,10 @@
         <constructor-arg value="1"/>
         <constructor-arg value="John Smith"/>
     </bean>
-    <bean id="eventLogger" class="service.impl.ConsoleEventLogger" scope="singleton"/>
+    <bean id="consoleEventLogger" class="service.impl.ConsoleEventLogger" scope="singleton"/>
     <bean id="app" class="App" scope="singleton">
         <constructor-arg ref="client"/>
-        <constructor-arg ref="eventLogger"/>
+        <constructor-arg ref="fileEventLogger"/>
     </bean>
     <bean id="event" class="model.Event" scope="prototype">
         <constructor-arg>
@@ -20,4 +20,7 @@
         <constructor-arg ref="dateFormat"/>
     </bean>
     <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
+    <bean id="fileEventLogger" class="service.impl.FileEventLogger" scope="singleton" init-method="init">
+        <constructor-arg value="target/events_log.txt"/>
+    </bean>
 </beans>
