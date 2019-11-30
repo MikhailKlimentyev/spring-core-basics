@@ -20,7 +20,7 @@ public class FileEventLogger implements IEventLogger {
     @Override
     public void logEvent(Event event) {
         try {
-            FileUtils.writeStringToFile(file, event.toString() + "\n",  true);
+            FileUtils.writeStringToFile(file, event.toString() + "\n", "UTF-8", true);
         } catch (IOException e) {
             e.printStackTrace();
         }
