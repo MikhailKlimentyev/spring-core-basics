@@ -6,7 +6,7 @@ import service.api.IEventLogger;
 public class ConsoleEventLogger implements IEventLogger {
 
     @Override
-    public void eventLogger(Event event) {
+    public void logEvent(Event event) {
         System.out.println(event.toString());
     }
 }

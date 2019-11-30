@@ -1,4 +1,5 @@
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import model.Client;
@@ -16,16 +17,17 @@ public class App {
     }
 
     public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
+        ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
         App app = (App) ctx.getBean("app");
         app.logEvent(ctx, "Some event for user 1");
         app.logEvent(ctx, "Some event for user 2");
+        ctx.close();
     }
 
     private void logEvent(ApplicationContext ctx, String msg) {
         Event event = ctx.getBean(Event.class);
         String newMsg = msg.replaceAll(client.getId(), client.getFullName());
         event.setMsg(newMsg);
-        eventLogger.eventLogger(event);
+        eventLogger.logEvent(event);
     }
 }

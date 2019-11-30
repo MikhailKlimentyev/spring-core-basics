@@ -4,5 +4,5 @@ import model.Event;
 
 public interface IEventLogger {
 
-    void eventLogger(Event event);
+    void logEvent(Event event);
 }
