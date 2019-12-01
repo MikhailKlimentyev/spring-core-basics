@@ -27,6 +27,14 @@ public class App {
         this.eventTypeLoggerMap = eventTypeLoggerMap;
     }
 
+    public IEventLogger getDefaultLogger() {
+        return defaultLogger;
+    }
+
+    public void setStartupMessage(String startupMessage) {
+        this.startupMessage = startupMessage;
+    }
+
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
         App app = (App) ctx.getBean("app");
@@ -61,13 +69,5 @@ public class App {
         }
 
         logger.logEvent(event);
-    }
-
-    public IEventLogger getDefaultLogger() {
-        return defaultLogger;
-    }
-
-    public void setStartupMessage(String startupMessage) {
-        this.startupMessage = startupMessage;
     }
 }
