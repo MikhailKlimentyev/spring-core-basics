@@ -7,6 +7,7 @@
     <bean id="client" class="model.Client" scope="singleton">
         <constructor-arg value="1"/>
         <constructor-arg value="John Smith"/>
+        <property name="greeting" value="Hello there!"/>
     </bean>
     <bean id="event" class="model.Event" scope="prototype">
         <constructor-arg>
