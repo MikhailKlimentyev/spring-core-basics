@@ -12,4 +12,12 @@
           destroy-method="destroy" parent="fileEventLogger">
         <constructor-arg index="1" value="5"/>
     </bean>
+    <bean id="combinedEventLogger" class="service.impl.CombinedEventLogger">
+        <constructor-arg>
+            <list>
+                <ref bean="consoleEventLogger"/>
+                <ref bean="fileEventLogger"/>
+            </list>
+        </constructor-arg>
+    </bean>
 </beans>
