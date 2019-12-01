@@ -9,8 +9,12 @@
  		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
     <bean id="app" class="App" scope="singleton">
         <constructor-arg ref="client"/>
-        <constructor-arg ref="cacheFileEventLogger"/>
+        <constructor-arg value="#{ T(model.Event).isDay(8,17) ? cacheFileEventLogger : consoleEventLogger }"/>
         <constructor-arg ref="loggerMap"/>
+        <property name="startupMessage" value="#{'Hello user ' +
+            ( systemProperties['os.name'].contains('Windows') ?
+            systemEnvironment['USERNAME'] : systemEnvironment['USER'] ) +
+                '. Default logger is ' + app.defaultLogger }"/>
     </bean>
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
