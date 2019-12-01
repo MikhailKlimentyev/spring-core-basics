@@ -1,6 +1,6 @@
 package model;
 
-public enum EventType {
+public enum EventTypes {
     INFO,
     ERROR;
 }
