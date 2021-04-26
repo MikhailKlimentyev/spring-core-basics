@@ -10,7 +10,7 @@
 
     <properties>
         <spring.ver>5.1.5.RELEASE</spring.ver>
-        <commons-io>2.6</commons-io>
+        <commons-io>2.7</commons-io>
     </properties>
 
     <dependencies>
